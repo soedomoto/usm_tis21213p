@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>OOP - Pemrograman Berbasis Web</title>
+
+  <meta name="description" content="OOP - Pemrograman Berbasis Web">
+  <meta name="author" content="Soedomoto">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <div class="r-hstack justify-center align-center">
+          <div data-id="box1"
+            style="background: transparent; width: 250px; height: 150px; margin: 10px; border-radius: 5px;">
+            <img style="margin: 0;"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/320px-PHP-logo.svg.png" />
+          </div>
+          <div data-id="box3"
+            style="background: transparent; width: 250px; height: 150px; margin: 10px; border-radius: 5px;">
+            <img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" />
+          </div>
+        </div>
+        <h3>Pemrograman Berbasis Objek</h3>
+        <p>
+          <small>Created by <a href="http://hakim.se">Aris Prawisudatama</a></small>
+        </p>
+      </section>
+
+      <section data-background-gradient="linear-gradient(to bottom, #283b95, #17b2c3)">
+        <h2>Hello There</h2>
+        <p>
+          I am
+        <h2>Aris Prawisudatama</h2> A Software Developer.
+        </p>
+      </section>
+
+      <section>
+        <h2>Github Repository</h2>
+        <div>
+          <div class="fragment grow">https://github.com/soedomoto/usm_tis21213p</div>
+          <pre data-id="code-animation"><code class="hljs sh" data-trim data-line-numbers>
+            
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>Paradigma Pemrograman</h2>
+        <div>
+          <div class="fragment grow">Pemrograman Prosedural</div>
+          <div class="fragment grow">Pemrograman Berbasis Objek</div>
+        </div>
+      </section>
+
+      <section>
+        <section>
+          <h3>Pemrograman Prosedural</h3>
+          <div>
+            <div class="fragment highlight-red ">Memiliki algoritma pemecahan masalah yang sederhana, standar dan
+              efektif</div>
+            <div class="fragment highlight-blue">Penulisan program memiliki struktur logika yang benar dan mudah
+              dipahami</div>
+            <div class="fragment highlight-red">Program hanya terdiri dari 3(tiga) struktur dasar, yaitu struktur
+              berurutan, struktur seleksi dan struktur perulangan</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Kekurangan Pemrograman Prosedural</h3>
+          <div>
+            <div class="fragment highlight-red ">Program cukup sulit untuk proses perawatan</div>
+            <div class="fragment highlight-blue">Fungsi yang tersedia, susah untuk diubah tanpa harus mempengaruhi
+              fungsi sistem secara keseluruhan</div>
+            <div class="fragment highlight-red">Butuh usaha yang keras untuk menterjemahkan Business Models dalam
+              programming models</div>
+            <div class="fragment highlight-blue">Mungkin dapat bekerja dengan baik pada saat terisolasi tapi tidak pada
+              saat terintegrasi dengan sistem lain</div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Pemrograman Berbasis Objek</h3>
+          <div>
+            <div class="fragment highlight-red ">Dengan OOP, kode-kode yang kita buat menjadi lebih rapih dan
+              terstruktur</div>
+            <div class="fragment highlight-blue">Dengan OOP, proses reuse kode-kode yang kita buat untuk project yang
+              hampir sama, mudah, karena kode yang kita buat rapih dan terstruktur. Sehingga untuk mengubah atau reuse
+              kode jauh lebih mudah</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Pemrograman Berbasis Objek</h3>
+          <div>
+            <div class="fragment highlight-red ">Konsepnya per modul. Fungsi atau prosedur misal di
+              java atau di PHP tinggal panggil saja nama
+              fungsinya. Jika bermasalah nantinya akan mudah
+              diketahui karena terbaca dari fungsi yang kita
+              panggil. Itulah yang dimaksud konsep per modul.
+              Sehingga dengan OOP, kita dimudahkan untuk
+              membuat dan membaca kode kita (efisiensi kode)</div>
+            <div class="fragment highlight-blue">Konsep OOP juga memudahkan kita untuk
+              menganalisa program yang kita akan buat. Ini akan
+              sangat terasa kalau kita membuat program besar
+              dan rumit</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Kekurangan Pemrograman Berbasis Objek</h3>
+          <div>
+            <div class="fragment highlight-red ">Kesulitan dalam ide programnya yang dapat
+              digunakan dalam program</div>
+            <div class="fragment highlight-blue">Membangun awal perlu ketrampilan programing
+              lebih</div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <h3>Prerequisites</h3>
+        <div>
+          <div class="fragment highlight-red">Apache/Nginx + PHP (XAMPP, etc)</div>
+          <div class="fragment highlight-red">Editor dengan Code Highlighting (VSCode, Sublime, Notepad++)</div>
+        </div>
+      </section>
+
+      <section>
+        <section>
+          <h3><i>Object</i> dan <i>Class</i></h3>
+          <div>
+            <div class="fragment highlight-red">Object secara umum dapat didefinisikan sebagai individu yang berdiri
+              sendiri.</div>
+            <div class="fragment small">Contoh: Si Andi, Si Ahmad, Si Blacky, Si Garfield, Honda Beat Plat B1234AA</div>
+            <div class="fragment small">Sebuah object merupakan instance dari class</div>
+          </div>
+        </section>
+
+        <section>
+          <h3><i>Object</i> dan <i>Class</i></h3>
+          <div>
+            <div class="fragment highlight-red">Sementara Class dapat didefinisikan sebagai tipe dari object tersebut
+            </div>
+            <div class="fragment small">Si Andi mempunyai tipe(kelas) "Manusia"</div>
+            <div class="fragment small">Si Blacky mempunyai tipe(kelas) "Anjing"</div>
+            <div class="fragment small">Si Garfield mempunyai tipe(kelas) "Kucing"</div>
+            <div class="fragment small">Si Honda Beat Plat B1234AA mempunyai tipe(kelas) "Sepeda Motor"</div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h2 data-id="code-title">Object dan Class di PHP</h2>
+          <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+            class Manusia {
+              // Properties
+              // Methods
+            }
+  
+            $andi = new Manusia();
+            echo "andi adalah sebuah " . gettype($andi) . " bertipe " . get_class($andi);
+          </code></pre>
+          <div>
+            <p><b style="color: red;">$andi</b> adalah sebuah <b style="color: red;">object</b> yang mempunyai <b
+                style="color: red;">tipe/class</b> <b style="color: red;">Manusia</b></p>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3><i>Attribute</i> atau <i>Properti</i></h3>
+          <div>
+            <div class="fragment highlight-red">Setiap class dapat memiliki beberapa attribut</div>
+            <div class="fragment">Sebagai instance dari class, object pasti memiliki attribut yang sama dengan kelasnya,
+              tetapi masing-masing object dapat memiliki nilai yang berbeda</div>
+            <div class="fragment">Si Blacky adalah "Anjing" berkaki 4</div>
+            <div class="fragment">Si Doggy adalah "Anjing" berkaki 3</div>
+          </div>
+        </section>
+
+        <section>
+          <h3><i>Method</i> atau <i>Perilaku</i></h3>
+          <div>
+            <div class="fragment highlight-red">Setiap class juga dapat memiliki beberapa method/perilaku</div>
+            <div class="fragment">Sebagai instance dari class, object pasti memiliki method yang sama dengan kelasnya
+            </div>
+            <div class="fragment">"Anjing" memiliki perilaku berjalan, menggonggong, menoleh, melet, buang air, dll
+            </div>
+            <div class="fragment">Si Doggy sebagai seekor "Anjing" akan memiliki perilaku yang sama</div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h2 data-id="code-title">Attribute dan Method di PHP</h2>
+          <small>Identifier public/protected/private akan dijelaskan di bagian Sifat OOP</small>
+          <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+            class Manusia {
+              public $jumlahMata;
+              public $jumlahTangan;
+              public $jumlahKaki;
+              private $golonganDarah;
+              private $jenisKelamin;
+
+              // Constructor dapat berisi nilai awal (default) ketika suatu object di buat
+              public function __construct() {
+                $this->jumlahMata = 2;
+                $this->jumlahTangan = 2;
+                $this->jumlahKaki = 2;
+                $this->golonganDarah = "A";
+                $this->jenisKelamin = "L";
+              }
+
+              public function golonganDarah() {
+                return $this->golonganDarah;
+              }
+
+              public function jenisKelamin() {
+                return $this->jenisKelamin;
+              }
+            }
+          </code></pre>
+          <div>
+            <div><small><b style="color: red;">$jumlahMata</b> adalah sebuah <b
+                  style="color: red;">attribute</b>.</small></div>
+            <div><small><b style="color: red;">golonganDarah()</b> adalah sebuah <b
+                  style="color: red;">method</b>.</small></div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <h3>Sifat Object Oriented Programming</h3>
+        <div>
+          <div class="fragment highlight-red ">Enkapsulasi (Encapsulation)</div>
+          <div class="fragment highlight-blue">Pewarisan (Inheritance)</div>
+          <div class="fragment highlight-red ">Polimorfisme (Polimorphism)</div>
+        </div>
+      </section>
+
+      <section>
+        <section>
+          <h3>Enkapsulasi</h3>
+          <div>
+            <div>Singkatnya Enkapsulasi adalah sebuah proses penggabungan atribut dan method ke dalam sebuah kelas</div>
+            <div class="fragment">Tujuan dari enkapsulasi adalah membatasi bagaimana suatu atribut maupun method dapat
+              digunakan, dengan menentukan hak akses (modifier)</div>
+            <div class="fragment">Modifier terdiri dari: public, protected, private</div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h2 data-id="code-title">Enkapsulasi di PHP</h2>
+          <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+            class Manusia {
+              public $jumlahMata;
+              public $jumlahTangan;
+              public $jumlahKaki;
+              private $golonganDarah;
+              private $jenisKelamin;
+
+              // Constructor dapat berisi nilai awal (default) ketika suatu object di buat
+              public function __construct() {
+                $this->jumlahMata = 2;
+                $this->jumlahTangan = 2;
+                $this->jumlahKaki = 2;
+                $this->golonganDarah = "A";
+                $this->jenisKelamin = "L";
+              }
+
+              public function golonganDarah() {
+                return $this->golonganDarah;
+              }
+
+              public function jenisKelamin() {
+                return $this->jenisKelamin;
+              }
+            }
+
+            echo $andi->jumlahMata;
+            echo "<br/><br/>";
+
+            echo $andi->golonganDarah;
+            echo "<br/><br/>";
+          </code></pre>
+          <div>
+            <div><small><b style="color: red;">$jumlahMata</b> adalah sebuah <b style="color: red;">public
+                  attribute</b>, sehingga bisa diakses secara langsung.</small></div>
+            <div><small><b style="color: red;">$golonganDarah</b> adalah sebuah <b style="color: red;">private
+                  attribute</b>, sehingga tidak bisa diakses secara langsung.
+                Perlu disertakan sebuah <b style="color: red;">public method</b> <b
+                  style="color: red;">golonganDarah()</b> untuk mengaksesnya.</small></div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Inheritance</h3>
+          <div>
+            <div>Singkatnya Inheritance adalah pewarisan sifat dari kelas induk</div>
+            <div class="fragment">Yang diwariskan adalah semua attribute dan method yang bersifat <b
+                style="color: red;">public</b> dan <b style="color: red;">protected</b></div>
+            <div class="fragment">di PHP menggunakan keyword <b style="color: red;">extends</b></div>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h2 data-id="code-title">Inheritance di PHP</h2>
+          <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+            class Manusia
+            {
+              public $jumlahMata;
+              public $jumlahTangan;
+              public $jumlahKaki;
+              private $golonganDarah;
+              protected $jenisKelamin;
+
+              // Constructor dapat berisi nilai awal (default) ketika suatu object di buat
+              public function __construct()
+              {
+                $this->jumlahMata = 2;
+                $this->jumlahTangan = 2;
+                $this->jumlahKaki = 2;
+                $this->golonganDarah = "A";
+                $this->jenisKelamin = "L";
+              }
+
+              public function golonganDarah()
+              {
+                return $this->golonganDarah;
+              }
+
+              public function jenisKelamin()
+              {
+                return $this->jenisKelamin;
+              }
+            }
+
+            class TukangOjek extends Manusia
+            {
+              public $jumlahMotor;
+
+              public function __construct()
+              {
+                parent::__construct();
+
+                $this->jumlahMotor = 1;
+              }
+            }
+          </code></pre>
+          <div>
+            <div><small><b style="color: red;">TukangOjek</b> mewarisi semua sifat (attribut) dan perilaku (method) yang
+                bersifat <b style="color: red;">public</b> dan <b style="color: red;">protected</b> dari induknya <b
+                  style="color: red;">Manusia</b></small></div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Polimorfisme</h3>
+          <div>
+            <div>Singkatnya Polimorfisme adalah suatu perilaku (method) yang sama dapat memiliki banyak bentuk</div>
+            <div class="fragment">Misalnya "Selamat Pagi", dapat memiliki berbagai bentuk, tergantung bahasanya:</div>
+            <small class="fragment">
+              <ul>
+                <li>Selamat pagi! (Indonesia)</li>
+                <li>Good morning! (Inggris)</li>
+                <li>Buenos días! (Spanyol)</li>
+                <li>Bonjour! (Perancis)</li>
+                <li>Guten Morgen! (Jerman)</li>
+                <li>Buongiorno! (Italia)</li>
+                <li>おはようございます (Ohayou gozaimasu)! (Jepang)</li>
+                <li>안녕하세요 (Annyeonghaseyo)! (Korea)</li>
+              </ul>
+            </small>
+          </div>
+        </section>
+
+        <section data-auto-animate>
+          <h2 data-id="code-title">Polimorfisme di PHP</h2>
+          <small>Pada sebagian besar bahasa pemrograman, termasuk PHP, polimorfisme diimplementasikan dengan <b>Abstract
+              Class</b> atau <b>Interface</b></small>
+          <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+            abstract class Orang {
+              abstract public function selamatPagi();
+            }
+            
+            class OrangIndonesia extends Orang {
+              public function selamatPagi() {}
+            }
+          </code></pre>
+          <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+            interface Orang {
+              public function selamatPagi();
+            }
+            
+            class OrangIndonesia implements Orang {
+              public function selamatPagi() {}
+            }
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <h2 data-id="code-title">Polimorfisme di PHP</h2>
+          <small>Abstract Class</small>
+          <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+            abstract class Orang {
+              abstract public function etnis();
+              abstract public function selamatPagi();
+            }
+            
+            class OrangIndonesia extends Orang {
+              public function etnis() {
+                return "Indonesia";
+              }
+            
+              public function selamatPagi() {
+                return "Selamat Pagi !";
+              }
+            }
+            
+            class OrangInggris extends Orang {
+              public function etnis() {
+                return "Inggris";
+              }
+            
+              public function selamatPagi() {
+                return "Good Morning !";
+              }
+            }
+            
+            class OrangPerancis extends Orang {
+              public function etnis() {
+                return "Perancis";
+              }
+            
+              public function selamatPagi() {
+                return "Bonjour !";
+              }
+            }
+            
+            class OrangJepang extends Orang {
+              public function etnis() {
+                return "Jepang";
+              }
+            
+              public function selamatPagi() {
+                return "Ohayou gozaimasu !";
+              }
+            }
+            
+            class OrangKorea extends Orang {
+              public function etnis() {
+                return "Korea";
+              }
+            
+              public function selamatPagi() {
+                return "Annyeonghaseyo !";
+              }
+            }
+            
+            $anggotaKelompok = [
+              new OrangIndonesia(),
+              new OrangInggris(),
+              new OrangPerancis(),
+              new OrangJepang(),
+              new OrangKorea()
+            ];
+            
+            foreach ($anggotaKelompok as $orang) {
+              echo "Orang " . $orang->etnis() . " mengucapkan " . $orang->selamatPagi() . "<br/>";
+            }
+          </code></pre>
+        </section>
+
+        <section data-auto-animate>
+          <h2 data-id="code-title">Polimorfisme di PHP</h2>
+          <small>Interface</small>
+          <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+            interface Orang {
+              public function etnis();
+              public function selamatPagi();
+            }
+            
+            class OrangIndonesia implements Orang {
+              public function etnis() {
+                return "Indonesia";
+              }
+            
+              public function selamatPagi() {
+                return "Selamat Pagi !";
+              }
+            }
+            
+            class OrangInggris implements Orang {
+              public function etnis() {
+                return "Inggris";
+              }
+            
+              public function selamatPagi() {
+                return "Good Morning !";
+              }
+            }
+            
+            class OrangPerancis implements Orang {
+              public function etnis() {
+                return "Perancis";
+              }
+            
+              public function selamatPagi() {
+                return "Bonjour !";
+              }
+            }
+            
+            class OrangJepang implements Orang {
+              public function etnis() {
+                return "Jepang";
+              }
+            
+              public function selamatPagi() {
+                return "Ohayou gozaimasu !";
+              }
+            }
+            
+            class OrangKorea implements Orang {
+              public function etnis() {
+                return "Korea";
+              }
+            
+              public function selamatPagi() {
+                return "Annyeonghaseyo !";
+              }
+            }
+            
+            $anggotaKelompok = [
+              new OrangIndonesia(),
+              new OrangInggris(),
+              new OrangPerancis(),
+              new OrangJepang(),
+              new OrangKorea()
+            ];
+            
+            foreach ($anggotaKelompok as $orang) {
+              echo "Orang " . $orang->etnis() . " mengucapkan " . $orang->selamatPagi() . "<br/>";
+            }
+          </code></pre>
+        </section>
+      </section>
+
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+    });
+
+  </script>
+</body>
+
+</html>
