@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Form dan CRUD</title>
+
+  <meta name="description" content="OOP - Pemrograman Berbasis Web">
+  <meta name="author" content="Soedomoto">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <div class="r-hstack justify-center align-center">
+          <div data-id="box1"
+            style="background: transparent; width: 250px; height: 150px; margin: 10px; border-radius: 5px;">
+            <img style="margin: 0;"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/320px-PHP-logo.svg.png" />
+          </div>
+          <div data-id="box3"
+            style="background: transparent; width: 250px; height: 150px; margin: 10px; border-radius: 5px;">
+            <img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" />
+          </div>
+        </div>
+        <h3>CRUD dan Form</h3>
+        <p>
+          <small>Created by <a href="http://hakim.se">Aris Prawisudatama</a></small>
+        </p>
+      </section>
+
+      <section data-background-gradient="linear-gradient(to bottom, #283b95, #17b2c3)">
+        <h2>Hello There</h2>
+        <p>
+          I am
+        <h2>Aris Prawisudatama</h2> A Software Developer.
+        </p>
+      </section>
+
+      <section>
+        <h2>Github Repository</h2>
+        <div>
+          <div class="fragment grow">https://github.com/soedomoto/usm_tis21213p</div>
+          <pre data-id="code-animation"><code class="hljs sh" data-trim data-line-numbers>
+            
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>Background</h2>
+        <div>
+          <div class="fragment grow">Hampir semua aplikasi, termasuk sistem informasi, memiliki penyimpanan data</div>
+          <div class="fragment grow" style="color: red; font-size: 20pt;">Agar data tidak hilang (persistent)</div>
+          <div class="fragment grow">Harus ada mekanisme manajemen data</div>
+          <div class="fragment grow" style="color: red; font-size: 20pt;">CRUD - Create, Read, Update, Delete</div>
+          <div class="fragment grow">Tidak boleh langsung diubah didatabase</div>
+          <div class="fragment grow" style="color: red; font-size: 20pt;">Integritas data, Hak Akses</div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Prerequisites</h3>
+        <div>
+          <div class="fragment highlight-red">Apache/Nginx + PHP + MySQL (XAMPP, etc)</div>
+          <div class="fragment highlight-red">Editor dengan Code Highlighting (VSCode, Sublime, Notepad++)</div>
+        </div>
+      </section>
+
+      <section>
+        <section>
+          <h3>CRUD - Create, Read, Update, Delete</h3>
+          <div>
+            <div class="fragment highlight-red">Create: Menambahkan record pada database</div>
+            <div class="fragment highlight-red">Read: Membaca satu atau lebih record pada database</div>
+            <div class="fragment highlight-red">Update: Mengubah record pada database</div>
+            <div class="fragment highlight-red">Delete: Menghapus record pada database</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Hard delete, Soft delete</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Sintaks SQL</h3>
+          <div>
+            <div>Create</div>
+            <pre data-id="code-animation"><code class="hljs sql" data-trim data-line-numbers>
+              INSERT INTO `mahasiswa` (`nim`, `nama`) VALUES
+                ('11111', 'Ahmad'),
+                ('11112', 'Ade');
+            </code></pre>
+          </div>
+          <div>
+            <div>Read</div>
+            <pre data-id="code-animation"><code class="hljs sql" data-trim data-line-numbers>
+              SELECT * FROM `mahasiswa`;
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>Sintaks SQL</h3>
+          <div>
+            <div>Update</div>
+            <pre data-id="code-animation"><code class="hljs sql" data-trim data-line-numbers>
+              UPDATE `mahasiswa` SET `nama` = 'Ahmad Subagja' 
+              WHERE `mahasiswa`.`nim` = '11111';
+            </code></pre>
+          </div>
+          <div>
+            <div>Delete</div>
+            <pre data-id="code-animation"><code class="hljs sql" data-trim data-line-numbers>
+              DELETE FROM mahasiswa WHERE `mahasiswa`.`nim` = '11111';
+            </code></pre>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>HTTP Method</h3>
+          <div>
+            <div class="fragment highlight-blue">GET</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Address bar browser</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Biasa dipake untuk request data</div>
+            <div class="fragment highlight-blue">POST</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Form</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Biasa dipake untuk mengirim data</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>HTTP Method: Jarang digunakan</h3>
+          <div>
+            <div class="fragment highlight-blue">DELETE</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Biasa dipake untuk menghapus data via API
+            </div>
+            <div class="fragment highlight-blue">HEAD</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Sama dengan GET, tetapi tidak memiliki
+              body</div>
+            <div class="fragment highlight-blue">OPTIONS</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Biasanya untuk mendapatkan permission,
+              seperti CORS</div>
+            <div class="fragment highlight-blue">PUT</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Biasanya untuk mengupdate data via API
+            </div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <h1>Lets Practice</h1>
+      </section>
+
+      <section>
+        <section>
+          <h3>PDO - PHP Data Object</h3>
+          <div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">PHP Extension yang menyediakan interface generic untuk mengakses database</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Analog dengan ODBC dan JDBC</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Membutuhkan driver sesuai target database</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Pros: Interface tetap sama, meskipun menggunakan database yang berbeda</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>PDO - PHP Data Object</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+              $host = 'db';
+              $db   = 'usm';
+              $user = 'user';
+              $pass = 'pass';
+              $port = "3306";
+              $charset = 'utf8mb4';
+
+              $options = [
+                  \PDO::ATTR_ERRMODE            => \PDO::ERRMODE_EXCEPTION,
+                  \PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC,
+                  \PDO::ATTR_EMULATE_PREPARES   => false,
+              ];
+
+              $dsn = "mysql:host=$host;dbname=$db;charset=$charset;port=$port";
+              $pdo = new \PDO($dsn, $user, $pass, $options);
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>PDO - Prepared vs Unprepared</h3>
+          <div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Unprepared</div>
+            <div class="fragment highlight-blue grow" style="font-size: 25pt;">Query langsung dieksekusi</div>
+            <div class="fragment highlight-blue grow" style="font-size: 25pt;">Tidak dapat menggunakan placeholder: ? atau :field</div>
+            <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+              $stmt = $pdo->query("SELECT * FROM mahasiswa WHERE nim = '1111';");
+              $rows = $stmt->fetchAll();
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>PDO - Prepared vs Unprepared</h3>
+          <div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Prepared</div>
+            <div class="fragment highlight-blue grow" style="font-size: 25pt;">Menjadi template. Tidak langsung dieksekusi</div>
+            <div class="fragment highlight-blue grow" style="font-size: 25pt;">Dapat menggunakan placeholder: ? atau :field</div>
+            <div class="fragment highlight-blue grow" style="font-size: 25pt;">Dapat dieksekusi berkali-kali dengan mengganti parameter</div>
+            <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+              $stmt = $pdo->prepare("SELECT * FROM mahasiswa WHERE nim = :nim");
+
+              $stmt->execute([':nim' => '11111']);
+              $rows = $stmt->fetchAll();
+              var_dump($rows);
+
+              $stmt->execute([':nim' => '11112']);
+              $rows = $stmt->fetchAll();
+              var_dump($rows);
+            </code></pre>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>List Mahasiswa</h3>
+          <div>
+            <div class="fragment highlight-blue">Menggunakan GET</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Tidak ada data yang dikirim</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Dapat memiliki parameter sebagai filter</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>List Mahasiswa</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+              $stmt = $pdo->prepare("SELECT * FROM mahasiswa");
+              $stmt->execute();
+
+              $rows = $stmt->fetchAll();
+            </code></pre>
+            <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+              <?php foreach ($rows as $r) { ?>
+                <tr>
+                  <td class="border px-8 py-4"><?php echo $r['nim']; ?></td>
+                  <td class="border px-8 py-4"><?php echo $r['nama']; ?></td>
+                  <td class="border px-8 py-4">
+                    <a href="./ubah?nim=<?php echo $r['nim']; ?>" class="bg-sky-500 hover:bg-sky-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
+                      Edit
+                    </a>
+                    <a href="./hapus?nim=<?php echo $r['nim']; ?>" class="bg-red-500 hover:bg-red-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white">
+                      Hapus
+                    </a>
+                  </td>
+                </tr>
+              <?php } ?>
+            </code></pre>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Tambah Mahasiswa</h3>
+          <div>
+            <div class="fragment highlight-blue">Menggunakan kombinasi GET dan POST</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Terdapat data yang dikirim</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Tambah Mahasiswa</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs html" data-trim data-line-numbers>
+              <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action=".">
+                <div class="mb-4">
+                  <label class="block text-gray-700 text-sm font-bold mb-2" for="nim">
+                    NIM
+                  </label>
+                  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nim" name="nim" type="text" placeholder="Masukkan NIM">
+                </div>
+                ...
+                <div class="flex items-center justify-between">
+                  <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="..">
+                    Kembali
+                  </a>
+                  <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white" type="submit">
+                    Simpan
+                  </button>
+                </div>
+              </form>
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>Tambah Mahasiswa</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+              if ($_POST) {
+                $nim = $_POST['nim'];
+                $nama = $_POST['nama'];
+            
+                $stmt = $pdo->prepare("INSERT INTO mahasiswa (nim, nama) VALUES (:nim, :nama);");
+                $stmt->execute(['nim' => $nim, 'nama' => $nama]);
+            
+                $lastInsertedId = $pdo->lastInsertId();
+              }
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>Tambah Mahasiswa</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs html" data-trim data-line-numbers>
+              <?php if (isset($lastInsertedId)) { ?>
+                <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+                  <div class="flex">
+                    <div class="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                      </svg></div>
+                    <div>
+                      <p class="font-bold">Tambah Mahasiswa</p>
+                      <p class="text-sm">Tambah mahasiswa berhasil.</p>
+                    </div>
+                  </div>
+                </div>
+              <?php } ?>
+            </code></pre>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Ubah Mahasiswa</h3>
+          <div>
+            <div class="fragment highlight-blue">Menggunakan kombinasi GET dan POST</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Terdapat parameter yang dikonsumsi</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Terdapat data yang dikirim</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Ubah Mahasiswa</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+              $stmt = $pdo->prepare("SELECT * FROM mahasiswa WHERE nim = :nim");
+              $stmt->execute(['nim' => $_GET['nim']]);
+              $row = $stmt->fetch();
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>Ubah Mahasiswa</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs html" data-trim data-line-numbers>
+              <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="./?nim=<?php echo $_GET['nim']; ?>">
+                <div class="mb-4">
+                  <label class="block text-gray-700 text-sm font-bold mb-2" for="nim">
+                    NIM
+                  </label>
+                  <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="nim" name="nim" type="text" placeholder="Masukkan NIM">
+                </div>
+                ...
+                <div class="flex items-center justify-between">
+                  <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="..">
+                    Kembali
+                  </a>
+                  <button class="bg-sky-500 hover:bg-sky-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white" type="submit">
+                    Simpan
+                  </button>
+                </div>
+              </form>
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>Ubah Mahasiswa</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+              if ($_POST) {
+                $nim = $_GET['nim'];
+                $nama = $_POST['nama'];
+            
+                $stmt = $pdo->prepare("UPDATE mahasiswa SET nama = :nama WHERE nim = :nim;");
+                $isUpdated = $stmt->execute(['nim' => $nim, 'nama' => $nama]);
+              }
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>Ubah Mahasiswa</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs html" data-trim data-line-numbers>
+              <?php if (isset($isUpdated) && $isUpdated == true) { ?>
+                <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+                  <div class="flex">
+                    <div class="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                      </svg></div>
+                    <div>
+                      <p class="font-bold">Ubah Mahasiswa</p>
+                      <p class="text-sm">Ubah mahasiswa berhasil.</p>
+                    </div>
+                  </div>
+                </div>
+              <?php } ?>
+            </code></pre>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Hapus Mahasiswa</h3>
+          <div>
+            <div class="fragment highlight-blue">Menggunakan kombinasi GET dan POST</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Terdapat parameter yang dikonsumsi</div>
+            <div class="fragment highlight-red grow" style="font-size: 25pt;">Terdapat data yang dikirim</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Hapus Mahasiswa</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+              $stmt = $pdo->prepare("SELECT * FROM mahasiswa WHERE nim = :nim");
+              $stmt->execute(['nim' => $_GET['nim']]);
+              $row = $stmt->fetch();
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>Hapus Mahasiswa</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs html" data-trim data-line-numbers>
+              <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" method="POST" action="./">
+                <input name="nim" type="hidden" value="<?php echo $row['nim']; ?>">
+                <div class="flex items-center justify-between">
+                  <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="..">
+                    Batal
+                  </a>
+                  <button class="bg-red-500 hover:bg-red-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold text-white" type="submit">
+                    Ya, Hapus
+                  </button>
+                </div>
+              </form>
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>Hapus Mahasiswa</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+              if ($_POST) {
+                $nim = $_POST['nim'];
+                $stmt = $pdo->prepare("DELETE FROM mahasiswa WHERE nim = :nim;");
+                $isDeleted = $stmt->execute(['nim' => $nim]);
+              }
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>Hapus Mahasiswa</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs html" data-trim data-line-numbers>
+              <?php if (isset($isDeleted) && $isDeleted == true) { ?>
+                <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+                  <div class="flex">
+                    <div class="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                        <path d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+                      </svg></div>
+                    <div>
+                      <p class="font-bold">Hapus Mahasiswa</p>
+                      <p class="text-sm">Hapus mahasiswa berhasil.</p>
+                      <a class="inline-block align-baseline font-bold text-sm text-blue-500 hover:text-blue-800" href="..">
+                        Kembali
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              <?php }  ?>
+            </code></pre>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <h3>Trivia</h3>
+        <h3>ARIA - Accessible Rich Internet Applications</h3>
+        <div>
+          <div class="fragment highlight-red grow" style="font-size: 25pt;">Digunakan oleh assistive technology (AT), seperti Braille atau TTS</div>
+          <div class="fragment highlight-red grow" style="font-size: 25pt;">Untuk menambahkan informasi dari informasi normal di HTML</div>
+        </div>
+      </section>
+
+      <section>
+        <h3>SEKIAN</h3>
+      </section>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+    });
+
+  </script>
+</body>
+
+</html>
