@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <title>Form dan CRUD</title>
+
+  <meta name="description" content="OOP - Pemrograman Berbasis Web">
+  <meta name="author" content="Soedomoto">
+
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css" id="theme">
+
+  <!-- Theme used for syntax highlighting of code -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+</head>
+
+<body>
+  <div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+      <section>
+        <div class="r-hstack justify-center align-center">
+          <div data-id="box1"
+            style="background: transparent; width: 250px; height: 150px; margin: 10px; border-radius: 5px;">
+            <img style="margin: 0;"
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/PHP-logo.svg/320px-PHP-logo.svg.png" />
+          </div>
+          <div data-id="box3"
+            style="background: transparent; width: 250px; height: 150px; margin: 10px; border-radius: 5px;">
+            <img src="https://static.slid.es/reveal/logo-v1/reveal-white-text.svg" />
+          </div>
+        </div>
+        <h3>Session dan Cookies</h3>
+        <p>
+          <small>Created by <a href="http://hakim.se">Aris Prawisudatama</a></small>
+        </p>
+      </section>
+
+      <section data-background-gradient="linear-gradient(to bottom, #283b95, #17b2c3)">
+        <h2>Hello There</h2>
+        <p>
+          I am
+        <h2>Aris Prawisudatama</h2> A Software Developer.
+        </p>
+      </section>
+
+      <section>
+        <h2>Github Repository</h2>
+        <div>
+          <div class="fragment grow">https://github.com/soedomoto/usm_tis21213p</div>
+          <pre data-id="code-animation"><code class="hljs sh" data-trim data-line-numbers>
+            
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2>Pernahkah Anda</h2>
+        <div>
+          <div class="fragment grow" style="color: red; font-size: 20pt;">Login ke suatu website (google, facebook, twitter, tokped, shopee), berpindah halaman tanpa login ulang?</div>
+          <div class="fragment grow" style="color: red; font-size: 20pt;">Mendapatkan rekomendasi bacaan, belanjaan, artikel, tweet, berita berdasarkan apa yang sering Anda buka?</div>
+          <div class="fragment grow">Secara tidak sadar sudah menggunakan cookies</div>
+        </div>
+      </section>
+      
+      <section>
+        <section>
+          <h3>Apa itu Cookies?</h3>
+          <div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">Cookies adalah beberapa text sederhana yang dikirimkan oleh website yang dikunjungi</div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">Cookies dapat membantu mengingat beberapa informasi dari website yang dikunjungi</div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">Cookies mempermudah akses ke website ketika berpindah halaman, atau dikunjungi ulang</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Sifat Cookies</h3>
+          <div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">Cookies tidak boleh melebihi 4KB text dalam form key=value data</div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">Cookies disimpan oleh browser</div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">Cookies bersifat spesifik pada domain yang mengirimkannya</div>
+            <div class="fragment grow" style="color: blue; font-size: 22pt;">Artinya kita hanya dapat membaca, mengubah, menghapus cookies pada domain yang mengirimkannya.</div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">Cookies bersifat spesifik pada browser yang menyimpannya</div>
+            <div class="fragment grow" style="color: blue; font-size: 22pt;">Artinya kita tidak dapat membaca, mengubah, menghapus cookies pada browser yang berbeda.</div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <h3>Men-set cookies</h3>
+        <div>
+          <div class="fragment grow" style="color: red;">Cookies dapat di-set dari server</div>
+          <div class="fragment grow" style="color: red;">Cookies dapat di-set dari client</div>
+        </div>
+      </section>
+
+      <section>
+        <section>
+          <h3>Men-set cookies dari server</h3>
+          <div>
+            <div class="fragment grow" style="color: red;">Mengirimkan response header "Set-Cookie: key=value;"</div>
+            <div class="fragment grow" style="color: red;">Browser akan menyimpan-nya sampai browser tertutup</div>
+            <div class="fragment grow" style="color: red;">Untuk menghapus-nya, set "Expires" ke tanggal yang telah lewat dan "Max-Age" = 0</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Expires dan Max-Age</h3>
+          <div>
+            <div class="fragment grow" style="color: red;">Set-Cookie: id=1; Expires=Sat, 18 May 2024 00:00:00 GMT;</div>
+            <div class="fragment grow" style="color: red;">Cookie "id" akan kadaluwarsa pada 18 mei 2024</div>
+            <div class="fragment grow" style="color: red;">Set-Cookie: id=1; Expires=Mon, 13 May 2024 00:00:00 GMT; Max-Age=0</div>
+            <div class="fragment grow" style="color: red;">Cookie "id" telah terhapus</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Domain dan Path</h3>
+          <div>
+            <div class="fragment grow" style="color: red;">"Domain" dan "Path" merepresentasikan scope atau untuk siapa cookie tersebut diperuntukkan</div>
+            <div class="fragment grow" style="color: red;">Jika nilainya di-set, maka cookie tersebut hanya dapat diakses dari domain dan path yang telah ditentukan</div>
+            <div class="fragment grow" style="color: red;">Nilai default dari Domain adalah host, tidak termasuk subdomain</div>
+            <div class="fragment grow" style="color: red;">Nilai default dari Path adalah /, termasuk sub-path-nya</div>
+            <div class="fragment grow" style="color: red;">Set-Cookie: id=1; Domain: google.com;</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Secure dan HttpOnly</h3>
+          <div>
+            <div class="fragment grow" style="color: red;">"Secure" flag hanya dapat digunakan jika diakses melalui HTTPS</div>
+            <div class="fragment grow" style="color: red;">"HttpOnly" flag mengindikasikan jika cookie tersebut tidak dapat diakses melalui javascript</div>
+            <div class="fragment grow" style="color: red;">Set-Cookie: id=1; Secure; HttpOnly;</div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Men-set cookies dari client / javascript</h3>
+          <div>
+            <div class="fragment grow" style="color: red;">Jika cookie dapat di-set melalui server dengan cara:</div>
+            <div class="fragment grow" style="color: red;">Set-Cookie: id=1; Expires=Sat, 18 May 2024 00:00:00 GMT; Path=/; Domain=*.google.com</div>
+            <div class="fragment grow" style="color: red;">Cookie juga dapat di-set dengan javascript di browser:</div>
+            <div class="fragment grow" style="color: red;">document.cookie = "id=1; Expires=Sat, 18 May 2024 00:00:00 GMT; Path=/; Domain=*.google.com"</div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <section>
+          <h3>Introduction: Json Web Token</h3>
+          <div>
+            <div class="fragment grow" style="color: red;">https://jwt.io/</div>
+            <div class="fragment grow" style="color: red;">JWT adalah standar terbuka (RFC 7519) yang memungkinkan untuk berbagi informasi melalui encrypted JSON object</div>
+            <div class="fragment grow" style="color: red;">Dapat digunakan sebagai alternative dari cookie</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Introduction: Localstorage and Sessionstorage</h3>
+          <div>
+            <div class="fragment grow" style="color: red;">Alternative penyimpanan data di browser, termasuk token</div>
+            <div class="fragment grow" style="color: red;">Localstorage: tidak expired walaupun browser ditutup</div>
+            <div class="fragment grow" style="color: red;">Sessionstorage: expired saat browser ditutup</div>
+            <div class="fragment grow" style="color: red;">Menggunakan javascript untuk memanage data</div>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <h3>Lets Practice to explore more</h3>
+      </section>
+
+      <section>
+        <section>
+          <h3>Apa itu PHP Session?</h3>
+          <div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">Digunakan untuk menyimpan informasi sementara terkait suatu user yang dapat digunakan oleh seluruh halamn website</div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">Informasi ini disimpan dalam sebuah file, atau database, atau cache server</div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">Menggunakan cookie sebagai identifier: "PHPSESSID"</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Cara kerja PHP Session</h3>
+          <div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">PHP server akan menginisiasi 32 digit random string sebagai PHPSESSID</div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">PHP server akan membuat file, baris tabel, atau sebuah key di cache server yang relevan dengan PHPSESSID</div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">Mengirimkan PHPSESSID sebagai cookie, yang akan melekat untuk setiap request</div>
+          </div>
+        </section>
+
+        <section>
+          <h3>Cara menggunakan PHP Session</h3>
+          <div>
+            <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+              session_start();
+
+              $_SESSION["counter"] = 1;
+              echo $_SESSION["counter"];
+              uset($_SESSION["counter"]);
+
+              session_destroy();
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>Konfigurasi keamanan</h3>
+          <div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">Fungsi session_start() dapat menerima parameter tambahan untuk memberikan keamanan tambahan</div>
+            <div class="fragment grow" style="color: red; font-size: 22pt;">Parameter dapat dilihat pada php.ini atau phpinfo()</div>
+          </div>
+          <div>
+            <pre data-id="code-animation"><code class="hljs php" data-trim data-line-numbers>
+              session_start([
+                'cookie_lifetime' => 14400,
+                'cookie_secure' => true,
+                'cookie_httponly' => true
+              ]);
+            </code></pre>
+          </div>
+        </section>
+      </section>
+
+      <section>
+        <h3>Lets Practice to explore more about session</h3>
+      </section>
+
+      <section>
+        <h3>SEKIAN</h3>
+      </section>
+    </div>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/zoom/zoom.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/search/search.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+  <script>
+
+    // Also available as an ES module, see:
+    // https://revealjs.com/initialization/
+    Reveal.initialize({
+      controls: true,
+      progress: true,
+      center: true,
+      hash: true,
+
+      // Learn about plugins: https://revealjs.com/plugins/
+      plugins: [RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight]
+    });
+
+  </script>
+</body>
+
+</html>
